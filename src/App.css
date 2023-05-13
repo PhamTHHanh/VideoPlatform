@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+.text-logo {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.text-logo:hover {
+  color: #ffb800;
+}
+
+.text-yellow-dark {
+  color: #ffb800;
+}
+
+.text-black {
+  color: #000;
+}
+#wrapper {
+  width: 100%;
+  margin-top: 90px;
+  font-family: 'Inria Sans';
+}
+
+
