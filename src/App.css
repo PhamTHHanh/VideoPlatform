@@ -53,13 +53,40 @@
   color: #ffb800;
 }
 
-.text-black {
-  color: #000;
+.text-black-custom {
+  color: #1f2430;
 }
 #wrapper {
   width: 100%;
   margin-top: 90px;
-  font-family: 'Inria Sans';
+  font-family: "Inria Sans";
+  font-size: 16px;
 }
 
+input[type="text"] {
+  border: none;
+  width: 100%;
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  border-bottom: 1px solid #D9D9D9;
+}
 
+label {
+  display: block;
+  color: #303030;
+}
+
+input[type=text]:focus {
+  border-bottom: 1px solid #FBD0BC !important;
+  outline: none;
+}
+
+input[type=file] {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  }

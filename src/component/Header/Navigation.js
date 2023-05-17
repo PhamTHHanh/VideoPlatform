@@ -1,20 +1,21 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import "./Navigation.css";
+import { Link, NavLink } from "react-router-dom";
+import UserMenu from "./UserMenu"
 
 function Navigation(props) {
+    const {isLogin} = props
   return (
     <div id="wrapper">
       <header>
         <div className="container">
           <div className="header-left">
-            <NavLink
+            <Link
               className="text-logo text-yellow-dark"
               activeclassname="active"
               to="/"
             >
               FCJUniversity
-            </NavLink>
+            </Link>
             <div className="container">
               <div className="header-left">
                 <div className="nav">
@@ -37,9 +38,25 @@ function Navigation(props) {
                 color: "#1F2430",
               }}
             ></i>
-            <div className="login-group">
-              <NavLink className="text-black" to="/">Sign in</NavLink>
-            </div>
+            {!isLogin && (
+              <div className="login-group">
+                <a className="link-signin" style={{ cursor: "pointer" }}>
+                  Sign in
+                </a>
+                <a
+                  className="btn-cus link-signup"
+                  style={{ cursor: "pointer" }}
+                >
+                  Sign up
+                </a>
+              </div>
+            )}
+            {isLogin && (
+              <div className="user-login-block">
+                <UserMenu/>
+              </div>
+            )}
+            {/* <UserMenu/> */}
           </div>
         </div>
       </header>
