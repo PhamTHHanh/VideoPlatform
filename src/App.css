@@ -56,6 +56,14 @@
 .text-black-custom {
   color: #1f2430;
 }
+
+.text-white {
+  color: #fff;
+}
+
+.text-light-black {
+  color: #1f2430;
+}
 #wrapper {
   width: 100%;
   margin-top: 90px;
@@ -70,23 +78,49 @@ input[type="text"] {
   padding: 5px 10px;
   font-size: 16px;
   font-weight: 400;
-  border-bottom: 1px solid #D9D9D9;
+  border-bottom: 1px solid #d9d9d9;
 }
 
 label {
   display: block;
-  color: #303030;
 }
 
-input[type=text]:focus {
-  border-bottom: 1px solid #FBD0BC !important;
+input[type="text"]:focus {
+  border-bottom: 1px solid #fbd0bc !important;
   outline: none;
 }
 
-input[type=file] {
+input[type="file"] {
   cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
-  }
+}
+
+.btn {
+  background-image: none;
+  box-shadow: none;
+  font-weight: bold;
+  border: none !important;
+  text-shadow: none;
+  padding: 0.7em 1em;
+  font-size: 1em;
+  transition: 0.2s;
+}
+.btn-mini {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0px !important;
+}
+.btn-mini:hover {
+  color:#ffb800;
+  font-weight: 700;
+}
+
+.icon-normal {
+  padding: 10px ;
+  cursor: pointer;
+  font-size: 14px;
+}

@@ -1,8 +1,9 @@
-.column-9 {
-    width: calc(100% / 20 * 8);
+.column-8 {
+    width: calc(100% / 20 * 8) !important;
     /* width: 100% */
 }
 .column-3 {
+    display: flex;
     width: calc(100% / 20 * 3);
     /* width: 100% */
 }

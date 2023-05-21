@@ -108,6 +108,9 @@ header .header-right .login-group .link-signup {
   padding: 0 25px;
 }
 
+header .header-right .login-group .link-signup:hover {
+  background: #c48d00;
+}
 .btn-cus {
   display: inline-block;
   color: #fff;
@@ -166,14 +169,16 @@ header .header-right .user-login-block {
 .create-course {
   width: 100%;
   height: 100%;
+  min-height: calc(100vh - 90px);
   background-color: #e7e7e7;
   display: flex;
   position: relative;
   align-items: center;
   flex-wrap: wrap;
+  color: #303030;
   /* justify-content: space-between; */
-  width: 100%;
   padding: 3% 5% 3% 5%;
+  overflow-y: scroll;
 }
 
 .course-title {
@@ -186,7 +191,7 @@ header .header-right .user-login-block {
   display: block;
   background-color: #fff;
   border-radius: 15px;
-  padding: 20px 20px 0;
+  padding: 20px;
   margin-bottom: 20px;
   overflow-y: auto;
 }
@@ -196,12 +201,12 @@ header .header-right .user-login-block {
 }
 .category-item {
   width: 100%;
-  min-height: 10vh;
-  max-height: 20vh;
+  /* min-height: 10vh;
+  max-height: 20vh; */
   /* margin: 5%; */
   display: block;
   background-color: #fff;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 5px;
   margin-bottom: 20px;
   overflow-y: auto;
@@ -266,7 +271,7 @@ header .header-right .user-login-block {
 
 .category-item .category-title {
   background-color: #ffb800;
-  border-radius: 13px 13px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
   width: 100%;
   height: auto;
   padding: 5px;
@@ -275,12 +280,18 @@ header .header-right .user-login-block {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
+.category-item .category-title div {
+  display: flex;
+  flex-wrap: wrap; 
+  width: 30%;
+}
 .category-item .category-title input[type="text"] {
   background-color: none;
-  width: 25%;
-  border-radius: 10px 0 0 0;
+  width: 90%;
+  border-radius: 5px;
 }
+
+
 .lecture-table {
   padding-top: 5px;
 }
@@ -294,6 +305,9 @@ header .header-right .user-login-block {
   padding: 5px 10px 5px 10px;
 }
 
+.lecture-table .table-title {
+  font-weight: 700;
+}
 .lecture-table .lecture-item {
   display: flex;
   align-items: center;
@@ -301,6 +315,53 @@ header .header-right .user-login-block {
   padding: 5px 10px 5px 10px;
 }
 
-.add-req {
-    color: #ffb800
+.add-req label:hover,
+.add-category:hover,
+.add-lecture label:hover {
+  color: #ffb800;
+  font-weight: 700;
+}
+
+.lecture input[type="text"] {
+  border: none;
+}
+
+.req-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.req-item .input-req {
+  width: 95%;
+}
+
+.req-item .input-req input[type="text"] {
+    width: 95%;
+}
+
+.req-item .input-req i {
+    color: #9E9EA6;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.req-item .remove_req{
+  color: red;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.req-item .remove_req:hover {
+    font-weight: 700;
+}
+
+.icon-down {
+  transform: rotate(-180deg);
+}
+
+.course-resource {
+  padding: 0 10px;
+  color: #505050
 }
