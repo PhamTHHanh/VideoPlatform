@@ -1,0 +1,10 @@
+{
+  "resourceName": "CourseCategory",
+  "tableName": "CourseCategory",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

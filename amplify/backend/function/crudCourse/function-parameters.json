@@ -1,0 +1,25 @@
+{
+  "lambdaLayers": [],
+  "permissions": {
+    "storage": {
+      "Course": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "CourseCategory": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "Lectures": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
+}

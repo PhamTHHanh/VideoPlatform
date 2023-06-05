@@ -1,0 +1,28 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-fcjvideoplatform-dev-94444-authRole",
+      "UnauthRoleArn": "arn:aws:iam::885078239936:role/amplify-fcjvideoplatform-dev-94444-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::885078239936:role/amplify-fcjvideoplatform-dev-94444-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-fcjvideoplatform-dev-94444-deployment",
+      "UnauthRoleName": "amplify-fcjvideoplatform-dev-94444-unauthRole",
+      "StackName": "amplify-fcjvideoplatform-dev-94444",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:885078239936:stack/amplify-fcjvideoplatform-dev-94444/f0832e90-fe93-11ed-a664-06a74e85bcc4",
+      "AmplifyAppId": "duuxdl8cega7d",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-fcjvideoplatform-dev-94444-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "fcjvideoplatform48207057": {},
+        "true": {}
+      },
+      "function": {
+        "crudCourse": {
+          "deploymentBucketName": "amplify-fcjvideoplatform-dev-94444-deployment",
+          "s3Key": "amplify-builds/crudCourse-41702f65684963523756-build.zip"
+        }
+      }
+    }
+  }
+}

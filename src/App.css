@@ -36,6 +36,10 @@
     transform: rotate(360deg);
   }
 }
+.root_loader {
+  text-align: center;
+  margin-top: 200px;
+}
 
 .text-logo {
   font-family: "Poppins";
@@ -50,6 +54,10 @@
 }
 
 .text-yellow-dark {
+  color: #c48d00
+}
+
+.text-yellow {
   color: #ffb800;
 }
 

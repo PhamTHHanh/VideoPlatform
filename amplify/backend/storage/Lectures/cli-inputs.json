@@ -1,0 +1,14 @@
+{
+  "resourceName": "Lectures",
+  "tableName": "Lectures",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "cate_id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

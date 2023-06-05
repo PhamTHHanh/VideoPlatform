@@ -1,16 +1,38 @@
 import React, { useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
-import UserMenu from "./UserMenu"
+import { Link } from "react-router-dom";
+import UserMenu from "./UserMenu";
+import { useSelector, useDispatch } from "react-redux";
+import { clearNotifications } from "../../store/reducers/notifications";
+import { showToast } from '../../utils/tools';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Navigation(props) {
-    const {isLogin} = props
+  const { isLogin } = props;
+  const notifications = useSelector((state) => state.notifications);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    let { global } = notifications;
+    if (notifications && global.error) {
+      const msg = global.msg ? global.msg : "Error";
+      showToast("ERROR", msg);
+      dispatch(clearNotifications());
+    }
+    if (notifications && global.success) {
+      const msg = global.msg ? global.msg : "Good!!";
+      showToast("SUCCESS", msg);
+      dispatch(clearNotifications());
+    }
+  }, [notifications]);
+
   return (
     <div id="wrapper">
       <header>
         <div className="container">
           <div className="header-left">
             <Link
-              className="text-logo text-yellow-dark"
+              className="text-logo text-yellow"
               activeclassname="active"
               to="/"
             >
@@ -40,25 +62,26 @@ function Navigation(props) {
             ></i>
             {!isLogin && (
               <div className="login-group">
-                <a className="link-signin" style={{ cursor: "pointer" }}>
+                <Link className="link-signin" style={{ cursor: "pointer" }}>
                   Sign in
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn-cus link-signup"
                   style={{ cursor: "pointer" }}
                 >
                   Sign up
-                </a>
+                </Link>
               </div>
             )}
             {isLogin && (
               <div className="user-login-block">
-                <UserMenu/>
+                <UserMenu />
               </div>
             )}
             {/* <UserMenu/> */}
           </div>
         </div>
+        <ToastContainer />
       </header>
     </div>
   );

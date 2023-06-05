@@ -108,7 +108,8 @@ header .header-right .login-group .link-signup {
   padding: 0 25px;
 }
 
-header .header-right .login-group .link-signup:hover {
+header .header-right .login-group .link-signup:hover,
+.btn-save:hover {
   background: #c48d00;
 }
 .btn-cus {
@@ -124,6 +125,7 @@ header .header-right .login-group .link-signup:hover {
   padding: 0 20px;
   margin: 0;
   border-radius: 30px;
+  cursor: pointer;
 }
 
 header .header-right .user-login-block {
@@ -194,6 +196,15 @@ header .header-right .user-login-block {
   padding: 20px;
   margin-bottom: 20px;
   overflow-y: auto;
+}
+
+.course-body {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .category-group {
   display: block;
@@ -269,6 +280,26 @@ header .header-right .user-login-block {
   width: 60%;
 }
 
+.btn-save {
+  border-radius: 20px;
+  background-color: #ffb800;
+  margin-left: 20px;
+}
+
+.submit-group {
+  display: flex;
+  align-items: center;
+  text-align: end;
+}
+.btn-cancle {
+  color: #020201;
+  cursor: pointer;
+}
+
+.btn-cancle:hover {
+  font-weight: 700;
+}
+/*============ Category ==============*/
 .category-item .category-title {
   background-color: #ffb800;
   border-radius: 5px 5px 0px 0px;
@@ -282,7 +313,7 @@ header .header-right .user-login-block {
 }
 .category-item .category-title div {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   width: 30%;
 }
 .category-item .category-title input[type="text"] {
@@ -291,7 +322,7 @@ header .header-right .user-login-block {
   border-radius: 5px;
 }
 
-
+/*============ Lecture ==============*/
 .lecture-table {
   padding-top: 5px;
 }
@@ -326,6 +357,16 @@ header .header-right .user-login-block {
   border: none;
 }
 
+.icon-down {
+  transform: rotate(-180deg);
+}
+
+.course-resource {
+  padding: 0 10px;
+  color: #505050;
+}
+
+/*============ Requirement ==============*/
 .req-item {
   display: flex;
   align-items: center;
@@ -337,16 +378,16 @@ header .header-right .user-login-block {
 }
 
 .req-item .input-req input[type="text"] {
-    width: 95%;
+  width: 95%;
 }
 
 .req-item .input-req i {
-    color: #9E9EA6;
-    font-size: 1em;
-    cursor: pointer;
+  color: #9e9ea6;
+  font-size: 1em;
+  cursor: pointer;
 }
 
-.req-item .remove_req{
+.req-item .remove_req {
   color: red;
   font-weight: 500;
   cursor: pointer;
@@ -354,14 +395,5 @@ header .header-right .user-login-block {
 }
 
 .req-item .remove_req:hover {
-    font-weight: 700;
-}
-
-.icon-down {
-  transform: rotate(-180deg);
-}
-
-.course-resource {
-  padding: 0 10px;
-  color: #505050
+  font-weight: 700;
 }

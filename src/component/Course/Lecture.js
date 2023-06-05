@@ -1,28 +1,65 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+// import { setCourseContent, removeLec, addLectureContent } from "../../../store/reducers/courseContent_reducer";
+import {
+  removeLec,
+  addLectureContent,
+  onChangeFile,
+} from "../../store/reducers/course";
 
-const keys = ["name", "video", "resource", "quiz"]
+const keys = ["name", "video", "resource", "quiz"];
+
 function Lecture(props) {
-  const { lectures, cate, onRemove, onChange } = props;
-  
-  const videoFile = useRef()
-  const resourceFile = useRef()
-  const quizFile = useRef()
+  const { cate} = props;
+  const dispatch = useDispatch();
+  // const courseContent = useSelector((state) => state.courseContent.list);
+  const courseContent = useSelector((state) => state.course.content);
 
-  const handleSelectFile = (element) => {
-    element.current.value = "";
-    element.current.click();
+  // Lecture element
+  const videoFile = useRef([]);
+  const resourceFile = useRef([]);
+  const quizFile = useRef([]);
+
+  // useEffect(() => {
+  //   let length = courseContent[cate].lectures.length
+  //   videoFile.current = videoFile.current.slice(0, length);
+  //   resourceFile.current = resourceFile.current.slice(0, length);
+  //   quizFile.current = quizFile.current.slice(0, length);
+  // }, [courseContent[cate].lectures]);
+
+  // Handle uploading file event
+  const handleSelectFile = (element, index) => {
+    element.current[index].value = "";
+    element.current[index].click();
   };
 
-  const onChangeFiles = (cate, index, event) => {
+  // Handle selected file
+  const changeFiles = (cate, index, event) => {
     const inputFiles = event.target.files[0];
-    const key = event.target.getAttribute('data-key')
-    onChange(cate, index, key, inputFiles)
-  }
+    // console.log(inputFiles)
+    const key = event.target.getAttribute("data-key");
+    dispatch(
+      addLectureContent({
+        indexCate: cate,
+        indexLec: index,
+        key: key,
+        value: inputFiles.name,
+      })
+    );
+    dispatch(
+      onChangeFile({
+        indexCate: cate,
+        indexLec: index,
+        key: key,
+        value: inputFiles,
+      })
+    );
+    // onChangeFiles(cate, index, key, inputFiles)
+  };
 
   return (
     <>
-      {lectures.map((item, index) => (
+      {courseContent[cate].lectures.map((item, index) => (
         <div className="lecture" key={index}>
           <input
             type="text"
@@ -30,47 +67,77 @@ function Lecture(props) {
             data-key={keys[0]}
             placeholder="Enter lecture name"
             defaultValue={item.name}
-            onChange={(e) => onChange(cate, index, e.target.getAttribute('data-key'), e.target.value)}
+            onChange={(e) =>
+              dispatch(
+                addLectureContent({
+                  indexCate: cate,
+                  indexLec: index,
+                  key: e.target.getAttribute("data-key"),
+                  value: e.target.value,
+                })
+              )
+            }
           ></input>
           <div className="column-3">
-            <div className="btn-mini" onClick={() => handleSelectFile(videoFile)}>Upload</div>
+            <div
+              className="btn-mini"
+              onClick={() => handleSelectFile(videoFile, index)}
+            >
+              Upload
+            </div>
             <input
               type="file"
               data-key={keys[1]}
               style={{ display: "none" }}
               accept=".mp4, .mov"
-              ref={videoFile}
-              onChange={(e) => onChangeFiles(cate, index, e)}
+              ref={el => videoFile.current[index] = el}
+              onChange={(e) => changeFiles(cate, index, e)}
             ></input>
-            <span className="course-resource">{item.video ? "1 file" : ""}</span>
+            <span className="course-resource">
+              {item.video ? "1 file" : ""}
+            </span>
           </div>
           <div className="column-3">
-            <div className="btn-mini" onClick={() => handleSelectFile(resourceFile)}>Upload</div>
+            <div
+              className="btn-mini"
+              onClick={() => handleSelectFile(resourceFile, index)}
+            >
+              Upload
+            </div>
             <input
               type="file"
               data-key={keys[2]}
               style={{ display: "none" }}
-              ref={resourceFile}
-              onChange={(e) => onChangeFiles(cate, index, e)}
+              ref={el => resourceFile.current[index] = el}
+              onChange={(e) => changeFiles(cate, index, e)}
             ></input>
-            <span className="course-resource">{item.resource ? "1 file" : ""}</span>
+            <span className="course-resource">
+              {item.resource ? "1 file" : ""}
+            </span>
           </div>
           <div className="column-3">
-            <div className="btn-mini" onClick={() => handleSelectFile(quizFile)}>Upload</div>
+            <div
+              className="btn-mini"
+              onClick={() => handleSelectFile(quizFile, index)}
+            >
+              Upload
+            </div>
             <input
               type="file"
               data-key={keys[3]}
               style={{ display: "none" }}
               accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-              ref={quizFile}
-              onChange={(e) => onChangeFiles(cate, index, e)}
+              ref={el => quizFile.current[index] = el}
+              onChange={(e) => changeFiles(cate, index, e)}
             ></input>
             <span className="course-resource">{item.quiz ? "1 file" : ""}</span>
           </div>
           <i
             className="fa-solid fa-xmark column-1"
             style={{ textAlign: "end", cursor: "pointer" }}
-            onClick={() => onRemove(cate, index)}
+            onClick={() =>
+              dispatch(removeLec({ indexCate: cate, indexLec: index }))
+            }
           ></i>
         </div>
       ))}

@@ -1,12 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Lecture from "./Lecture";
+import { useSelector, useDispatch } from "react-redux";
+import { setCourseContent, removeCategory, setFileContent } from "../../store/reducers/course";
+import { v4 as uuidv4 } from "uuid";
+// import {
+//   setCourseContent,
+//   removeCategory,
+// } from "../../../store/reducers/courseContent_reducer";
 
 function Category(props) {
-  const { contentCourse, onRemove, onChangeCate, addLecture, onRemoveLec, onChangeLec } = props;
+  // const { contentCourse, onRemove, onChangeCate, addLecture, onRemoveLec, onChangeLec } = props;
 
+  const dispatch = useDispatch();
+  const courseContent = useSelector((state) => state.course.content);
+  const courseFiles = useSelector((state) => state.course.files);
+
+  // Expnad or Collapse category block
   const showHideCategory = (index, e) => {
     const id = `cate_${index}`;
     const element = document.getElementById(id);
+
     if (element.classList[1]) {
       // Expand
       element.classList.remove("collapsed");
@@ -22,21 +35,39 @@ function Category(props) {
     }
   };
 
+  const addNewLecture = (index) => {
+    const newLecture = {
+      id: uuidv4(),
+      name: "",
+      video: "",
+      resource: "",
+      quiz: "",
+    };
+    const newFiles = {
+      video: null,
+      resource: null,
+      quiz: null,
+    }
+    let category = courseContent[index]
+    let files = courseFiles[index]
+    dispatch(setCourseContent({index: index, value: {...category, lectures: [...category.lectures, newLecture]}}));
+    dispatch(setFileContent({index: index, value: {...files, lectures: [...files.lectures, newFiles]}}));
+  };
   return (
     <>
-      {contentCourse.map((item, index) => (
-        <div
-          className="category-item"
-          key={index}
-          id={`cate_${index}`}
-        >
+      {courseContent.map((item, index) => (
+        <div className="category-item" key={index} id={`cate_${index}`}>
           <div className="category-title">
             <div className="">
               <input
                 type="text"
                 placeholder="Enter category"
                 defaultValue={item.category}
-                onChange={(e) => onChangeCate(index, e.target.value)}
+                onChange={(e) =>
+                  dispatch(
+                    setCourseContent({index: index, value: {...courseContent[index], category: e.target.value} })
+                  )
+                }
               ></input>
               <i
                 className="fa-solid fa-caret-up icon-normal text-white"
@@ -45,7 +76,7 @@ function Category(props) {
             </div>
             <i
               className="fa-solid fa-trash icon-normal text-white"
-              onClick={() => onRemove(index)}
+              onClick={() => dispatch(removeCategory(index))}
             ></i>
           </div>
           <div className="lecture-table">
@@ -58,17 +89,18 @@ function Category(props) {
             </div>
             <div className="table-content">
               <Lecture
-                lectures={item.lectures}
+                // lectures={item.lectures}
                 cate={index}
-                onRemove={onRemoveLec}
-                onChange = {onChangeLec}
+                // onRemove={onRemoveLec}
+                // onChange = {onChangeLec}
               />
             </div>
-            <div className="add-lecture pt-2" onClick={() => addLecture(index)}>
+            <div className="add-lecture pt-2">
               <label
                 style={{
                   cursor: "pointer",
                 }}
+                onClick={() => addNewLecture(index)}
               >
                 <i className="fa-solid fa-plus icon-normal"></i> Add lecture
               </label>
