@@ -1,27 +1,37 @@
 {
-  "dev": {
+  "sampledev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-fcjvideoplatform-dev-94444-authRole",
-      "UnauthRoleArn": "arn:aws:iam::885078239936:role/amplify-fcjvideoplatform-dev-94444-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::885078239936:role/amplify-fcjvideoplatform-dev-94444-authRole",
-      "Region": "ap-southeast-1",
-      "DeploymentBucketName": "amplify-fcjvideoplatform-dev-94444-deployment",
-      "UnauthRoleName": "amplify-fcjvideoplatform-dev-94444-unauthRole",
-      "StackName": "amplify-fcjvideoplatform-dev-94444",
-      "StackId": "arn:aws:cloudformation:ap-southeast-1:885078239936:stack/amplify-fcjvideoplatform-dev-94444/f0832e90-fe93-11ed-a664-06a74e85bcc4",
-      "AmplifyAppId": "duuxdl8cega7d",
-      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-fcjvideoplatform-dev-94444-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+      "AuthRoleName": "amplify-fcjvideoplatform-sampledev-22015-authRole",
+      "UnauthRoleArn": "arn:aws:iam::148922931563:role/amplify-fcjvideoplatform-sampledev-22015-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::148922931563:role/amplify-fcjvideoplatform-sampledev-22015-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-fcjvideoplatform-sampledev-22015-deployment",
+      "UnauthRoleName": "amplify-fcjvideoplatform-sampledev-22015-unauthRole",
+      "StackName": "amplify-fcjvideoplatform-sampledev-22015",
+      "StackId": "arn:aws:cloudformation:us-east-1:148922931563:stack/amplify-fcjvideoplatform-sampledev-22015/2b7a3210-0956-11ee-8f42-0e69aac21eeb",
+      "AmplifyAppId": "db7hnxxv49st2"
     },
     "categories": {
-      "auth": {
-        "fcjvideoplatform48207057": {},
-        "true": {}
-      },
       "function": {
         "crudCourse": {
-          "deploymentBucketName": "amplify-fcjvideoplatform-dev-94444-deployment",
-          "s3Key": "amplify-builds/crudCourse-41702f65684963523756-build.zip"
-        }
+          "deploymentBucketName": "amplify-fcjvideoplatform-sampledev-22015-deployment",
+          "s3Key": "amplify-builds/crudCourse-69616a3966696674496c-build.zip"
+        },
+        "Course": {},
+        "CourseCategory": {},
+        "Lectures": {}
+      },
+      "storage": {
+        "fcjvideoplatform": {},
+        "Course": {},
+        "CourseCategory": {},
+        "Lectures": {}
+      },
+      "api": {
+        "fcjvideoplatformapi": {}
+      },
+      "auth": {
+        "fcjvideoplatformbf8216f5": {}
       }
     }
   }
