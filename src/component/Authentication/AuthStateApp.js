@@ -1,193 +1,164 @@
 import React from 'react';
-// import './App.css';
 import './Animation.css';
 import '@aws-amplify/ui-react/styles.css';
-
 import { Amplify } from 'aws-amplify';
-import { Authenticator } from '@aws-amplify/ui-react';
-import { View } from '@aws-amplify/ui-react';
-import { Heading } from '@aws-amplify/ui-react';
-import { Text } from '@aws-amplify/ui-react';
-import { useTheme } from '@aws-amplify/ui-react';
-import { useAuthenticator } from '@aws-amplify/ui-react';
-import { Image } from '@aws-amplify/ui-react';
-import { Button } from '@aws-amplify/ui-react';
-
+import { Authenticator, useAuthenticator } from '@aws-amplify/ui-react';
+import { View, Heading, Text, useTheme, Image, Button } from '@aws-amplify/ui-react';
 import awsconfig from '../../aws-exports';
-
 
 
 Amplify.configure(awsconfig);
 
+const Header = () => {
+  const { tokens } = useTheme();
+  return (
+    <View className="AuthStateApp__Header" textAlign="center" padding={tokens.space.large}>
+      {/* <Image
+        alt="Amplify logo"
+        src="https://docs.amplify.aws/assets/logo-dark.svg"
+      /> */}
+    </View>
+  );
+};
+
+const SignInHeader = () => {
+  const { tokens } = useTheme();
+  return (
+    <Heading className="AuthStateApp__SignInHeader" padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`} level={3}>
+      Sign in to your account
+    </Heading>
+  );
+};
+
+const SignInFooter = () => {
+  const { toResetPassword } = useAuthenticator();
+  return (
+    <View className="AuthStateApp__SignInFooter" textAlign="center">
+      <Button className="AuthStateApp__SignInFooterButton" fontWeight="normal" onClick={toResetPassword} size="small" variation="link">
+        Reset Password
+      </Button>
+    </View>
+  );
+};
+
+const SignUpHeader = () => {
+  const { tokens } = useTheme();
+  return (
+    <Heading className="AuthStateApp__SignUpHeader" padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`} level={3}>
+      Create a new account
+    </Heading>
+  );
+};
+
+const SignUpFooter = () => {
+  const { toSignIn } = useAuthenticator();
+  return (
+    <View className="AuthStateApp__SignUpFooter" textAlign="center">
+      <Button className="AuthStateApp__SignUpFooterButton" fontWeight="normal" onClick={toSignIn} size="small" variation="link">
+        Back to Sign In
+      </Button>
+    </View>
+  );
+};
+
+const ConfirmSignUpHeader = () => {
+  const { tokens } = useTheme();
+  return (
+    <Heading className="AuthStateApp__ConfirmSignUpHeader" padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`} level={3}>
+      Enter Information:
+    </Heading>
+  );
+};
+
+const ConfirmSignUpFooter = () => {
+  return <Text className="AuthStateApp__ConfirmSignUpFooter">Footer Information</Text>;
+};
+
+const SetupTOTPHeader = () => {
+  const { tokens } = useTheme();
+  return (
+    <Heading className="AuthStateApp__SetupTOTPHeader" padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`} level={3}>
+      Enter Information:
+    </Heading>
+  );
+};
+
+const SetupTOTPFooter = () => {
+  return <Text className="AuthStateApp__SetupTOTPFooter">Footer Information</Text>;
+};
+
+const ConfirmSignInHeader = () => {
+  const { tokens } = useTheme();
+  return (
+    <Heading className="AuthStateApp__ConfirmSignInHeader" padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`} level={3}>
+      Enter Information:
+    </Heading>
+  );
+};
+
+const ConfirmSignInFooter = () => {
+  return <Text className="AuthStateApp__ConfirmSignInFooter">Footer Information</Text>;
+};
+
+const ResetPasswordHeader = () => {
+  const { tokens } = useTheme();
+  return (
+    <Heading className="AuthStateApp__ResetPasswordHeader" padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`} level={3}>
+      Enter Information:
+    </Heading>
+  );
+};
+
+const ResetPasswordFooter = () => {
+  return <Text className="AuthStateApp__ResetPasswordFooter">Footer Information</Text>;
+};
+
+const ConfirmResetPasswordHeader = () => {
+  const { tokens } = useTheme();
+  return (
+    <Heading className="AuthStateApp__ConfirmResetPasswordHeader" padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`} level={3}>
+      Enter Information:
+    </Heading>
+  );
+};
+
+const ConfirmResetPasswordFooter = () => {
+  return <Text className="AuthStateApp__ConfirmResetPasswordFooter">Footer Information</Text>;
+};
+
 
 const components = {
-  Header() {
-    const { tokens } = useTheme();
-
-    return (
-      <View textAlign="center" padding={tokens.space.large}>
-        {/* <Image
-          alt="Amplify logo"
-          src="https://docs.amplify.aws/assets/logo-dark.svg"
-        /> */}
-      </View>
-    );
-  },
-
-  // Footer() {
-  //   const { tokens } = useTheme();
-
-  //   return (
-  //     <View textAlign="center" padding={tokens.space.large}>
-  //       <Text color={tokens.colors.neutral[80]}>
-  //         &copy; All Rights Reserved
-  //       </Text>
-  //     </View>
-  //   );
-  // },
-
+  Header,
   SignIn: {
-    Header() {
-      const { tokens } = useTheme();
-
-      return (
-        <Heading
-          padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`}
-          level={3}
-        >
-          Sign in to your account
-        </Heading>
-      );
-    },
-    Footer() {
-      const { toResetPassword } = useAuthenticator();
-
-      return (
-        <View textAlign="center">
-          <Button
-            fontWeight="normal"
-            onClick={toResetPassword}
-            size="small"
-            variation="link"
-          >
-            Reset Password
-          </Button>
-        </View>
-      );
-    },
+    Header: SignInHeader,
+    Footer: SignInFooter,
   },
-
   SignUp: {
-    Header() {
-      const { tokens } = useTheme();
-
-      return (
-        <Heading
-          padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`}
-          level={3}
-        >
-          Create a new account
-        </Heading>
-      );
-    },
-    Footer() {
-      const { toSignIn } = useAuthenticator();
-
-      return (
-        <View textAlign="center">
-          <Button
-            fontWeight="normal"
-            onClick={toSignIn}
-            size="small"
-            variation="link"
-          >
-            Back to Sign In
-          </Button>
-        </View>
-      );
-    },
+    Header: SignUpHeader,
+    Footer: SignUpFooter,
   },
   ConfirmSignUp: {
-    Header() {
-      const { tokens } = useTheme();
-      return (
-        <Heading
-          padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`}
-          level={3}
-        >
-          Enter Information:
-        </Heading>
-      );
-    },
-    Footer() {
-      return <Text>Footer Information</Text>;
-    },
+    Header: ConfirmSignUpHeader,
+    Footer: ConfirmSignUpFooter,
   },
   SetupTOTP: {
-    Header() {
-      const { tokens } = useTheme();
-      return (
-        <Heading
-          padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`}
-          level={3}
-        >
-          Enter Information:
-        </Heading>
-      );
-    },
-    Footer() {
-      return <Text>Footer Information</Text>;
-    },
+    Header: SetupTOTPHeader,
+    Footer: SetupTOTPFooter,
   },
   ConfirmSignIn: {
-    Header() {
-      const { tokens } = useTheme();
-      return (
-        <Heading
-          padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`}
-          level={3}
-        >
-          Enter Information:
-        </Heading>
-      );
-    },
-    Footer() {
-      return <Text>Footer Information</Text>;
-    },
+    Header: ConfirmSignInHeader,
+    Footer: ConfirmSignInFooter,
   },
   ResetPassword: {
-    Header() {
-      const { tokens } = useTheme();
-      return (
-        <Heading
-          padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`}
-          level={3}
-        >
-          Enter Information:
-        </Heading>
-      );
-    },
-    Footer() {
-      return <Text>Footer Information</Text>;
-    },
+    Header: ResetPasswordHeader,
+    Footer: ResetPasswordFooter,
   },
   ConfirmResetPassword: {
-    Header() {
-      const { tokens } = useTheme();
-      return (
-        <Heading
-          padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`}
-          level={3}
-        >
-          Enter Information:
-        </Heading>
-      );
-    },
-    Footer() {
-      return <Text>Footer Information</Text>;
-    },
+    Header: ConfirmResetPasswordHeader,
+    Footer: ConfirmResetPasswordFooter,
   },
 };
+
 
 const formFields = {
   signIn: {
@@ -249,9 +220,12 @@ const formFields = {
 
 export default function AuthStateApp() {
   return (
-    <Authenticator  formFields={formFields} components={components} socialProviders={['amazon', 'facebook', 'google']} >
+    <Authenticator
+      formFields={formFields}
+      components={components}
+      socialProviders={['amazon', 'facebook', 'google']}
+    >
       {({ signOut }) => <button onClick={signOut}>Sign out</button>}
     </Authenticator>
   );
 }
-

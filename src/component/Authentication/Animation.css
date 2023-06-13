@@ -1,158 +1,107 @@
-
 /* Animation.css */
-@keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideIn {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
 
-
-/* App.css */
-
-/* Thêm CSS cho phần Header */
-.View {
-  text-align: center;
-  padding: var(--tokens-space-large);
+/* Animation component */
+.Animation {
+  /* CSS rules for the Animation component */
 }
 
-/* Thêm CSS cho phần Sign In */
-.Header h3 {
+/* Header component */
+.AuthStateApp__Header {
+  /* CSS rules for the Header component */
+}
+
+/* SignInHeader component */
+.AuthStateApp__SignInHeader {
+  /* CSS rules for the SignInHeader component */
   padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
 }
 
-.Footer {
+/* SignInFooter component */
+.AuthStateApp__SignInFooter {
+  /* CSS rules for the SignInFooter component */
   text-align: center;
 }
 
-.Footer button {
+/* SignInFooter Button */
+.AuthStateApp__SignInFooterButton {
+  /* CSS rules for the Button component inside SignInFooter */
   font-weight: normal;
-  font-size: var(--tokens-fontSizes-small);
-  color: var(--tokens-colors-textLink);
-  text-decoration: underline;
 }
 
-/* Thêm CSS cho phần Sign Up */
-.SignUp .Header h3 {
+/* SignUpHeader component */
+.AuthStateApp__SignUpHeader {
+  /* CSS rules for the SignUpHeader component */
   padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
 }
 
-.SignUp .Footer {
+/* SignUpFooter component */
+.AuthStateApp__SignUpFooter {
+  /* CSS rules for the SignUpFooter component */
   text-align: center;
 }
 
-.SignUp .Footer button {
+/* SignUpFooter Button */
+.AuthStateApp__SignUpFooterButton {
+  /* CSS rules for the Button component inside SignUpFooter */
   font-weight: normal;
-  font-size: var(--tokens-fontSizes-small);
-  color: var(--tokens-colors-textLink);
-  text-decoration: underline;
 }
 
-/* Thêm CSS cho các phần còn lại */
-.ConfirmSignUp .Header h3,
-.SetupTOTP .Header h3,
-.ConfirmSignIn .Header h3,
-.ResetPassword .Header h3,
-.ConfirmResetPassword .Header h3 {
+/* ConfirmSignUpHeader component */
+.AuthStateApp__ConfirmSignUpHeader {
+  /* CSS rules for the ConfirmSignUpHeader component */
   padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
 }
 
-.ConfirmSignUp .Footer,
-.SetupTOTP .Footer,
-.ConfirmSignIn .Footer,
-.ResetPassword .Footer,
-.ConfirmResetPassword .Footer {
+/* ConfirmSignUpFooter component */
+.AuthStateApp__ConfirmSignUpFooter {
+  /* CSS rules for the ConfirmSignUpFooter component */
   text-align: center;
 }
 
-.ConfirmSignUp .Footer .Text,
-.SetupTOTP .Footer .Text,
-.ConfirmSignIn .Footer .Text,
-.ResetPassword .Footer .Text,
-.ConfirmResetPassword .Footer .Text {
-  color: var(--tokens-colors-textPrimary);
+/* SetupTOTPHeader component */
+.AuthStateApp__SetupTOTPHeader {
+  /* CSS rules for the SetupTOTPHeader component */
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
 }
 
-
-/* CSS for Form */
-.authenticator-form-container {
-  max-width: 400px;
-  margin: 0 auto;
+/* SetupTOTPFooter component */
+.AuthStateApp__SetupTOTPFooter {
+  /* CSS rules for the SetupTOTPFooter component */
+  text-align: center;
 }
 
-.authenticator-form {
-  margin-top: 40px;
+/* ConfirmSignInHeader component */
+.AuthStateApp__ConfirmSignInHeader {
+  /* CSS rules for the ConfirmSignInHeader component */
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
 }
 
-.authenticator-form-header {
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: bold;
+/* ConfirmSignInFooter component */
+.AuthStateApp__ConfirmSignInFooter {
+  /* CSS rules for the ConfirmSignInFooter component */
+  text-align: center;
 }
 
-.authenticator-form-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
+/* ResetPasswordHeader component */
+.AuthStateApp__ResetPasswordHeader {
+  /* CSS rules for the ResetPasswordHeader component */
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
 }
 
-.authenticator-form-button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-right: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #ffb800; /* Màu mới cho button */
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
+/* ResetPasswordFooter component */
+.AuthStateApp__ResetPasswordFooter {
+  /* CSS rules for the ResetPasswordFooter component */
+  text-align: center;
 }
 
-.authenticator-form-button:hover {
-  background-color: #ff9900; /* Màu hover mới cho button */
+/* ConfirmResetPasswordHeader component */
+.AuthStateApp__ConfirmResetPasswordHeader {
+  /* CSS rules for the ConfirmResetPasswordHeader component */
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
 }
 
-/* CSS for Button */
-.authenticator-button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-right: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #ffb800; /* Màu mới cho button */
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.authenticator-button:hover {
-  background-color: #ff9900; /* Màu hover mới cho button */
-}
-
-/* Animation */
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.fade-in {
-  animation: fade-in 0.5s ease-in-out;
+/* ConfirmResetPasswordFooter component */
+.AuthStateApp__ConfirmResetPasswordFooter {
+  /* CSS rules for the ConfirmResetPasswordFooter component */
+  text-align: center;
 }
