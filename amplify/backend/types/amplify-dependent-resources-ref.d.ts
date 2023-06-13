@@ -7,11 +7,13 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "auth": {
-    "fcjvideoplatformbf8216f5": {
+    "fcjvideoplatform3cf04494": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
+      "HostedUIDomain": "string",
       "IdentityPoolId": "string",
       "IdentityPoolName": "string",
+      "OAuthMetadata": "string",
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"

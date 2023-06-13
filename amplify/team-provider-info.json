@@ -31,7 +31,14 @@
         "fcjvideoplatformapi": {}
       },
       "auth": {
-        "fcjvideoplatformbf8216f5": {}
+        "fcjvideoplatformae8fdbf4": {},
+        "fcjvideoplatform3cf04494": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "db7hnxxv49st2",
+          "type": "manual"
+        }
       }
     }
   }

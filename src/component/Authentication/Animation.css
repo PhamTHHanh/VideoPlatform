@@ -1,0 +1,158 @@
+
+/* Animation.css */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+
+/* App.css */
+
+/* Thêm CSS cho phần Header */
+.View {
+  text-align: center;
+  padding: var(--tokens-space-large);
+}
+
+/* Thêm CSS cho phần Sign In */
+.Header h3 {
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
+}
+
+.Footer {
+  text-align: center;
+}
+
+.Footer button {
+  font-weight: normal;
+  font-size: var(--tokens-fontSizes-small);
+  color: var(--tokens-colors-textLink);
+  text-decoration: underline;
+}
+
+/* Thêm CSS cho phần Sign Up */
+.SignUp .Header h3 {
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
+}
+
+.SignUp .Footer {
+  text-align: center;
+}
+
+.SignUp .Footer button {
+  font-weight: normal;
+  font-size: var(--tokens-fontSizes-small);
+  color: var(--tokens-colors-textLink);
+  text-decoration: underline;
+}
+
+/* Thêm CSS cho các phần còn lại */
+.ConfirmSignUp .Header h3,
+.SetupTOTP .Header h3,
+.ConfirmSignIn .Header h3,
+.ResetPassword .Header h3,
+.ConfirmResetPassword .Header h3 {
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
+}
+
+.ConfirmSignUp .Footer,
+.SetupTOTP .Footer,
+.ConfirmSignIn .Footer,
+.ResetPassword .Footer,
+.ConfirmResetPassword .Footer {
+  text-align: center;
+}
+
+.ConfirmSignUp .Footer .Text,
+.SetupTOTP .Footer .Text,
+.ConfirmSignIn .Footer .Text,
+.ResetPassword .Footer .Text,
+.ConfirmResetPassword .Footer .Text {
+  color: var(--tokens-colors-textPrimary);
+}
+
+
+/* CSS for Form */
+.authenticator-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.authenticator-form {
+  margin-top: 40px;
+}
+
+.authenticator-form-header {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.authenticator-form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.authenticator-form-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffb800; /* Màu mới cho button */
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.authenticator-form-button:hover {
+  background-color: #ff9900; /* Màu hover mới cho button */
+}
+
+/* CSS for Button */
+.authenticator-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffb800; /* Màu mới cho button */
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.authenticator-button:hover {
+  background-color: #ff9900; /* Màu hover mới cho button */
+}
+
+/* Animation */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}

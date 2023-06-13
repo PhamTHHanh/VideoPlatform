@@ -16,7 +16,7 @@
     }
   },
   "auth": {
-    "fcjvideoplatformbf8216f5": {
+    "fcjvideoplatform3cf04494": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -32,9 +32,7 @@
           "EMAIL"
         ],
         "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
-        ],
+        "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
         ]
@@ -79,6 +77,13 @@
       "service": "Lambda"
     }
   },
+  "hosting": {
+    "amplifyhosting": {
+      "providerPlugin": "awscloudformation",
+      "service": "amplifyhosting",
+      "type": "manual"
+    }
+  },
   "parameters": {
     "AMPLIFY_function_crudCourse_deploymentBucketName": {
       "usedBy": [
@@ -93,6 +98,22 @@
         {
           "category": "function",
           "resourceName": "crudCourse"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_appId": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_type": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
         }
       ]
     }
