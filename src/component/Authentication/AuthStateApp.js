@@ -168,10 +168,10 @@ const formFields = {
   },
   signUp: {
     password: {
-      label: 'Password:',
-      placeholder: 'Enter your Password:',
       isRequired: false,
       order: 2,
+      label: 'Password:',
+      placeholder: 'Enter your Password:'
     },
     confirm_password: {
       label: 'Confirm Password:',
@@ -223,7 +223,7 @@ export default function AuthStateApp() {
     <Authenticator
       formFields={formFields}
       components={components}
-      socialProviders={['amazon', 'facebook', 'google']}
+      socialProviders={['amazon','google']}
     >
       {({ signOut }) => <button onClick={signOut}>Sign out</button>}
     </Authenticator>
