@@ -1,43 +1,30 @@
 {
   "sampledev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-fcjvideoplatform-sampledev-22015-authRole",
-      "UnauthRoleArn": "arn:aws:iam::148922931563:role/amplify-fcjvideoplatform-sampledev-22015-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::148922931563:role/amplify-fcjvideoplatform-sampledev-22015-authRole",
+      "AuthRoleName": "amplify-fcjvideoplatform-sampledev-111633-authRole",
+      "UnauthRoleArn": "arn:aws:iam::148922931563:role/amplify-fcjvideoplatform-sampledev-111633-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::148922931563:role/amplify-fcjvideoplatform-sampledev-111633-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-fcjvideoplatform-sampledev-22015-deployment",
-      "UnauthRoleName": "amplify-fcjvideoplatform-sampledev-22015-unauthRole",
-      "StackName": "amplify-fcjvideoplatform-sampledev-22015",
-      "StackId": "arn:aws:cloudformation:us-east-1:148922931563:stack/amplify-fcjvideoplatform-sampledev-22015/2b7a3210-0956-11ee-8f42-0e69aac21eeb",
-      "AmplifyAppId": "db7hnxxv49st2"
+      "DeploymentBucketName": "amplify-fcjvideoplatform-sampledev-111633-deployment",
+      "UnauthRoleName": "amplify-fcjvideoplatform-sampledev-111633-unauthRole",
+      "StackName": "amplify-fcjvideoplatform-sampledev-111633",
+      "StackId": "arn:aws:cloudformation:us-east-1:148922931563:stack/amplify-fcjvideoplatform-sampledev-111633/426ee8c0-0a6a-11ee-aa07-0a5a82b152a9",
+      "AmplifyAppId": "di7amw463yoy6"
     },
     "categories": {
-      "function": {
-        "crudCourse": {
-          "deploymentBucketName": "amplify-fcjvideoplatform-dev-94444-deployment",
-          "s3Key": "amplify-builds/crudCourse-4a546e395058574f7244-build.zip"
-        },
-        "Course": {},
-        "CourseCategory": {},
-        "Lectures": {}
-      },
-      "storage": {
-        "fcjvideoplatform": {},
-        "Course": {},
-        "CourseCategory": {},
-        "Lectures": {}
-      },
-      "api": {
-        "fcjvideoplatformapi": {}
-      },
       "auth": {
-        "fcjvideoplatformae8fdbf4": {},
         "fcjvideoplatform3cf04494": {}
       },
       "hosting": {
         "amplifyhosting": {
-          "appId": "db7hnxxv49st2",
+          "appId": "di7amw463yoy6",
           "type": "manual"
+        }
+      },
+      "function": {
+        "crudCourse": {
+          "deploymentBucketName": "amplify-fcjvideoplatform-sampledev-111633-deployment",
+          "s3Key": "amplify-builds/crudCourse-69483078427a43484947-build.zip"
         }
       }
     }

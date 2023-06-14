@@ -1,66 +1,64 @@
 export type AmplifyDependentResourcesAttributes = {
-  "api": {
-    "fcjvideoplatformapi": {
-      "ApiId": "string",
-      "ApiName": "string",
-      "RootUrl": "string"
-    }
-  },
-  "auth": {
-    "fcjvideoplatform3cf04494": {
-      "AppClientID": "string",
-      "AppClientIDWeb": "string",
-      "HostedUIDomain": "string",
-      "IdentityPoolId": "string",
-      "IdentityPoolName": "string",
-      "OAuthMetadata": "string",
-      "UserPoolArn": "string",
-      "UserPoolId": "string",
-      "UserPoolName": "string"
-    }
-  },
-  "function": {
-    "crudCourse": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    }
-  },
-
-  "storage": {
-    "fcjvideoplatform": {
-      "BucketName": "string",
-      "Region": "string"
+    "api": {
+        "fcjvideoplatformapi": {
+            "RootUrl": "string",
+            "ApiName": "string",
+            "ApiId": "string"
+        }
     },
-    "Course": {
-      "Name": "string",
-      "Arn": "string",
-      "StreamArn": "string",
-      "PartitionKeyName": "string",
-      "PartitionKeyType": "string",
-      "Region": "string"
+    "auth": {
+        "fcjvideoplatform3cf04494": {
+            "IdentityPoolId": "string",
+            "IdentityPoolName": "string",
+            "HostedUIDomain": "string",
+            "OAuthMetadata": "string",
+            "UserPoolId": "string",
+            "UserPoolArn": "string",
+            "UserPoolName": "string",
+            "AppClientIDWeb": "string",
+            "AppClientID": "string"
+        }
     },
-    "Lectures": {
-      "Name": "string",
-      "Arn": "string",
-      "StreamArn": "string",
-      "PartitionKeyName": "string",
-      "PartitionKeyType": "string",
-      "SortKeyName": "string",
-      "SortKeyType": "string",
-      "Region": "string"
+    "function": {
+        "crudCourse": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
+        }
     },
-    "Section": {
-      "Name": "string",
-      "Arn": "string",
-      "StreamArn": "string",
-      "PartitionKeyName": "string",
-      "PartitionKeyType": "string",
-      "SortKeyName": "string",
-      "SortKeyType": "string",
-      "Region": "string"
+    "storage": {
+        "Course": {
+            "Name": "string",
+            "Arn": "string",
+            "StreamArn": "string",
+            "PartitionKeyName": "string",
+            "PartitionKeyType": "string",
+            "Region": "string"
+        },
+        "Lectures": {
+            "Name": "string",
+            "Arn": "string",
+            "StreamArn": "string",
+            "PartitionKeyName": "string",
+            "PartitionKeyType": "string",
+            "SortKeyName": "string",
+            "SortKeyType": "string",
+            "Region": "string"
+        },
+        "fcjvideoplatform": {
+            "BucketName": "string",
+            "Region": "string"
+        },
+        "Section": {
+            "Name": "string",
+            "Arn": "string",
+            "StreamArn": "string",
+            "PartitionKeyName": "string",
+            "PartitionKeyType": "string",
+            "SortKeyName": "string",
+            "SortKeyType": "string",
+            "Region": "string"
+        }
     }
-  }
 }
