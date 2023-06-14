@@ -3,12 +3,12 @@
     "fcjvideoplatformapi": {
       "dependsOn": [
         {
+          "category": "function",
+          "resourceName": "crudCourse",
           "attributes": [
             "Name",
             "Arn"
-          ],
-          "category": "function",
-          "resourceName": "crudCourse"
+          ]
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -44,37 +44,37 @@
   "function": {
     "crudCourse": {
       "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
       "dependsOn": [
         {
+          "category": "storage",
+          "resourceName": "Course",
           "attributes": [
             "Name",
             "Arn",
             "StreamArn"
-          ],
-          "category": "storage",
-          "resourceName": "Course"
+          ]
         },
         {
+          "category": "storage",
+          "resourceName": "Lectures",
           "attributes": [
             "Name",
             "Arn",
             "StreamArn"
-          ],
-          "category": "storage",
-          "resourceName": "CourseCategory"
+          ]
         },
         {
+          "category": "storage",
+          "resourceName": "Section",
           "attributes": [
             "Name",
             "Arn",
             "StreamArn"
-          ],
-          "category": "storage",
-          "resourceName": "Lectures"
+          ]
         }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
+      ]
     }
   },
   "hosting": {
@@ -123,10 +123,6 @@
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     },
-    "CourseCategory": {
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB"
-    },
     "Lectures": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
@@ -135,6 +131,10 @@
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "S3"
+    },
+    "Section": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
     }
   }
 }

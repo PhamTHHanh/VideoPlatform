@@ -7,6 +7,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "@fontsource/poppins";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import "@fortawesome/free-solid-svg-icons"
+import "@fortawesome/free-regular-svg-icons"
+import "@fortawesome/free-brands-svg-icons"
 // import '@fortawesome/free-solid-svg-icons'
 // import '@fortawesome/free-regular-svg-icons'
 // import "@expo-google-fonts/inria-sans";

@@ -71,3 +71,32 @@ export const postFiles = createAsyncThunk(
     }
   }
 );
+
+export const postFile = createAsyncThunk(
+  "course/postFile",
+  async (data, { dispatch, getState }) => {
+    if (data) {
+      try {
+        await Storage.put(data.name, data, {
+          level: "public",
+        });
+      } catch (error) {
+        dispatch(errorGlobal(error.response.data.message));
+        throw error;
+      }
+    }
+  }
+);
+
+export const getAllCourses = createAsyncThunk(
+  "course/getAllCourses",
+  async (data, { dispatch, getState }) => {
+    try {
+      const request = await API.get(api_name, "/course");
+      return request.data;
+    } catch (error) {
+      dispatch(errorGlobal(error.response.data.message));
+      throw error;
+    }
+  }
+);
