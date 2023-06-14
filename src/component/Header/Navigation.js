@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import UserMenu from "./UserMenu";
+import Breadcrumbs from "../../utils/breadcrumbs";
 import { useSelector, useDispatch } from "react-redux";
 import { clearNotifications } from "../../store/reducers/notifications";
 import { showToast } from '../../utils/tools';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Navigation(props) {
@@ -81,8 +82,9 @@ function Navigation(props) {
             {/* <UserMenu/> */}
           </div>
         </div>
-        <ToastContainer />
+        {/* <ToastContainer /> */}
       </header>
+      {/* <Breadcrumbs/> */}
     </div>
   );
 }

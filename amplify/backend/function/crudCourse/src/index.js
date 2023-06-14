@@ -1,15 +1,15 @@
 /* Amplify Params - DO NOT EDIT
 	ENV
 	REGION
-	STORAGE_COURSECATEGORY_ARN
-	STORAGE_COURSECATEGORY_NAME
-	STORAGE_COURSECATEGORY_STREAMARN
 	STORAGE_COURSE_ARN
 	STORAGE_COURSE_NAME
 	STORAGE_COURSE_STREAMARN
 	STORAGE_LECTURES_ARN
 	STORAGE_LECTURES_NAME
 	STORAGE_LECTURES_STREAMARN
+	STORAGE_SECTION_ARN
+	STORAGE_SECTION_NAME
+	STORAGE_SECTION_STREAMARN
 Amplify Params - DO NOT EDIT */
 
 /**
@@ -28,7 +28,7 @@ const client = new DynamoDBClient({});
 const dynamo = DynamoDBDocumentClient.from(client);
 
 let course_table_name = process.env.STORAGE_COURSE_NAME;
-let category_table_name = process.env.STORAGE_COURSECATEGORY_NAME;
+let section_table_name = process.env.STORAGE_SECTION_NAME;
 let lecture_table_name = process.env.STORAGE_LECTURES_NAME;
 
 export const handler = async (event) => {
@@ -63,10 +63,10 @@ export const handler = async (event) => {
         try {
           await dynamo.send(
             new PutCommand({
-              TableName: category_table_name,
+              TableName: section_table_name,
               Item: {
                 id: content_course[i].id,
-                title: content_course[i].category,
+                title: content_course[i].section,
                 course_id: course_data.id,
               },
             })

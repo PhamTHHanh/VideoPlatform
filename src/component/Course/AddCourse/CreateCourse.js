@@ -1,28 +1,29 @@
 import React, { useState, useRef, useEffect } from "react";
 import Requirement from "./Requirement";
-import Category from "./Category";
+import Section from "./Section";
 // import Loader from "../../utils/loader";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setCourse,
-  addNewCate,
-  addNewSetFile,
-} from "../../store/reducers/course";
-import { postCourse, postFiles } from "../../store/actions/course";
-
+  addNewSec,
+} from "../../../store/reducers/course";
+import { postCourse, postFiles, postFile } from "../../../store/actions/course";
 import { v4 as uuidv4 } from "uuid";
+import * as update from "immutability-helper";
 
 function CreateCourse(props) {
   const dispatch = useDispatch();
   const course = useSelector((state) => state.course.course);
   const courseContent = useSelector((state) => state.course.content);
-  const courseFiles = useSelector((state) => state.course.files);
+  // const courseFiles = useSelector((state) => state.course.files);
   const processing = useSelector((state) => state.course.processing);
+  const [courseImage, setCourseImage] = useState(null)
+  const [resourceFiles, setResourceFiles] = useState([])
   const courseTitleEl = useRef();
   const coursePage = useRef();
   const spinner = useRef();
   // const [isSubmit, setIsSubmit] = useState(false);
-
+  console.log(resourceFiles)
   // Position of page
   const [courseScroll, setCourseScroll] = useState(0);
   const [pageScroll, setPageScroll] = useState(0);
@@ -35,7 +36,7 @@ function CreateCourse(props) {
   }, [courseScroll]);
 
   useEffect(() => {
-    // Scroll to bottom when add new category
+    // Scroll to bottom when add new section
     if (pageScroll > 0) {
       coursePage.current.scrollIntoView({ behavior: "smooth", block: "end" });
       setPageScroll(0);
@@ -50,10 +51,10 @@ function CreateCourse(props) {
     setCourseScroll(courseTitleEl.current.scrollHeight);
   };
 
-  const addNewCategory = () => {
+  const addNewSection = () => {
     const newCate = {
       id: uuidv4(),
-      category: "",
+      section: "",
       lectures: [
         {
           id: uuidv4(),
@@ -68,8 +69,9 @@ function CreateCourse(props) {
       lectures: [{ video: null, resource: null, quiz: null }],
     };
 
-    dispatch(addNewCate(newCate));
-    dispatch(addNewSetFile(newSetFile));
+    dispatch(addNewSec(newCate));
+    // dispatch(addNewSetFile(newSetFile));
+    setResourceFiles([...resourceFiles, newSetFile])
     setPageScroll(coursePage.current.scrollHeight);
   };
 
@@ -78,12 +80,38 @@ function CreateCourse(props) {
     dispatch(setCourse({ ...course, benefit: arrayBenefit }));
   };
 
-  const onSubmit = (e) => {
+  const addCourseImage = (file) => {
+    dispatch(setCourse({ ...course, image: file.name }));
+    setCourseImage(file)
+  }
+
+  const onInitResourceFile = (indexSec) => {
+    const newFiles = {
+      video: null,
+      resource: null,
+      quiz: null,
+    }
+    let newResource = update(resourceFiles, {
+      [indexSec]: { lectures: { $push: [newFiles] } },
+    });
+    setResourceFiles(newResource)
+  }
+
+  const onChangeResourceFile = (indexSec, indexLec, key, file) => {
+    const files = [...resourceFiles];
+    files[indexSec].lectures[indexLec][key] = file
+    setResourceFiles(files)
+  }
+
+  const onSubmit = async (e) => {
     e.preventDefault();
     // spinner.current.classList.remove("visually-hidden");
 
     // upload files to s3 by amplify
-    dispatch(postFiles(courseFiles));
+    dispatch(postFiles(resourceFiles));
+
+    // upload course image
+    dispatch(postFile(courseImage))
 
     // write data to DynamoDB
     const course_id = uuidv4();
@@ -199,6 +227,16 @@ function CreateCourse(props) {
           </div>
         </div>
         <div className="input-box">
+          <label>Image:</label>
+          <input
+            type="file"
+            accept=".png, .jpg, .jpeg"
+            onChange={(e) =>
+              addCourseImage(e.target.files[0])
+            }
+          ></input>
+        </div>
+        <div className="input-box">
           <label>Requirement:</label>
           <Requirement />
         </div>
@@ -215,14 +253,14 @@ function CreateCourse(props) {
         </div>
       </div>
       <div className="course-body">
-        <div className="add-category" onClick={addNewCategory}>
+        <div className="add-section" onClick={addNewSection}>
           <i className="fa-solid fa-folder-plus icon-normal"></i>
           <label
             style={{
               cursor: "pointer",
             }}
           >
-            Add category
+            Add section
           </label>
         </div>
         <div className="submit-group">
@@ -233,8 +271,8 @@ function CreateCourse(props) {
           </div>
         </div>
       </div>
-      <div className="category-group">
-        <Category />
+      <div className="section-group">
+        <Section onInitResourceFile={onInitResourceFile} onChangeResourceFile={onChangeResourceFile}/>
       </div>
     </div>
   );

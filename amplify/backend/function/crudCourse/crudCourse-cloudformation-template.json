@@ -28,18 +28,6 @@
       "Type": "String",
       "Default": "storageCourseStreamArn"
     },
-    "storageCourseCategoryName": {
-      "Type": "String",
-      "Default": "storageCourseCategoryName"
-    },
-    "storageCourseCategoryArn": {
-      "Type": "String",
-      "Default": "storageCourseCategoryArn"
-    },
-    "storageCourseCategoryStreamArn": {
-      "Type": "String",
-      "Default": "storageCourseCategoryStreamArn"
-    },
     "storageLecturesName": {
       "Type": "String",
       "Default": "storageLecturesName"
@@ -51,6 +39,18 @@
     "storageLecturesStreamArn": {
       "Type": "String",
       "Default": "storageLecturesStreamArn"
+    },
+    "storageSectionName": {
+      "Type": "String",
+      "Default": "storageSectionName"
+    },
+    "storageSectionArn": {
+      "Type": "String",
+      "Default": "storageSectionArn"
+    },
+    "storageSectionStreamArn": {
+      "Type": "String",
+      "Default": "storageSectionStreamArn"
     }
   },
   "Conditions": {
@@ -115,15 +115,6 @@
             "STORAGE_COURSE_STREAMARN": {
               "Ref": "storageCourseStreamArn"
             },
-            "STORAGE_COURSECATEGORY_NAME": {
-              "Ref": "storageCourseCategoryName"
-            },
-            "STORAGE_COURSECATEGORY_ARN": {
-              "Ref": "storageCourseCategoryArn"
-            },
-            "STORAGE_COURSECATEGORY_STREAMARN": {
-              "Ref": "storageCourseCategoryStreamArn"
-            },
             "STORAGE_LECTURES_NAME": {
               "Ref": "storageLecturesName"
             },
@@ -132,6 +123,15 @@
             },
             "STORAGE_LECTURES_STREAMARN": {
               "Ref": "storageLecturesStreamArn"
+            },
+            "STORAGE_SECTION_NAME": {
+              "Ref": "storageSectionName"
+            },
+            "STORAGE_SECTION_ARN": {
+              "Ref": "storageSectionArn"
+            },
+            "STORAGE_SECTION_STREAMARN": {
+              "Ref": "storageSectionStreamArn"
             }
           }
         },
@@ -294,14 +294,14 @@
               ],
               "Resource": [
                 {
-                  "Ref": "storageCourseCategoryArn"
+                  "Ref": "storageLecturesArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storageCourseCategoryArn"
+                        "Ref": "storageLecturesArn"
                       },
                       "index/*"
                     ]
@@ -327,14 +327,14 @@
               ],
               "Resource": [
                 {
-                  "Ref": "storageLecturesArn"
+                  "Ref": "storageSectionArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storageLecturesArn"
+                        "Ref": "storageSectionArn"
                       },
                       "index/*"
                     ]

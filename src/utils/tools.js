@@ -25,3 +25,17 @@ export const showToast = (type,msg) => {
     }
 }
 
+export const convertPath = (text) => {
+    console.log(text)
+    let lowerPath = text.toLowerCase();
+    return lowerPath.replace(/ /g, "-");
+}
+
+// export const convertToText = (path) => {
+//     let arrStr = path.split("-");
+//     let text = ""
+//     arrStr.map((str) => {
+//    word.charAt(0).toUpperCase()
+ //   + word.slice(1)
+//     })
+// }

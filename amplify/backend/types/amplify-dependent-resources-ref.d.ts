@@ -23,15 +23,17 @@ export type AmplifyDependentResourcesAttributes = {
             "PartitionKeyType": "string",
             "Region": "string"
         },
-        "CourseCategory": {
+        "Lectures": {
             "Name": "string",
             "Arn": "string",
             "StreamArn": "string",
             "PartitionKeyName": "string",
             "PartitionKeyType": "string",
+            "SortKeyName": "string",
+            "SortKeyType": "string",
             "Region": "string"
         },
-        "Lectures": {
+        "Section": {
             "Name": "string",
             "Arn": "string",
             "StreamArn": "string",

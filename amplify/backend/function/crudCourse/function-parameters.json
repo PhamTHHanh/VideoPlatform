@@ -8,13 +8,13 @@
         "update",
         "delete"
       ],
-      "CourseCategory": [
+      "Lectures": [
         "create",
         "read",
         "update",
         "delete"
       ],
-      "Lectures": [
+      "Section": [
         "create",
         "read",
         "update",

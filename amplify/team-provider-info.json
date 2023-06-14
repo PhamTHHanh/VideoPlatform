@@ -20,7 +20,7 @@
       "function": {
         "crudCourse": {
           "deploymentBucketName": "amplify-fcjvideoplatform-dev-94444-deployment",
-          "s3Key": "amplify-builds/crudCourse-41702f65684963523756-build.zip"
+          "s3Key": "amplify-builds/crudCourse-4a546e395058574f7244-build.zip"
         }
       }
     }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeRequirement, addReqContent } from "../../store/reducers/course";
+import { removeRequirement, addReqContent } from "../../../store/reducers/course";
 
 function Requirement_Redux(props) {
   const { onClear } = props;

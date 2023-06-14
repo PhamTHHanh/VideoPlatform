@@ -35,11 +35,11 @@
       "service": "DynamoDB",
       "providerPlugin": "awscloudformation"
     },
-    "CourseCategory": {
+    "Lectures": {
       "service": "DynamoDB",
       "providerPlugin": "awscloudformation"
     },
-    "Lectures": {
+    "Section": {
       "service": "DynamoDB",
       "providerPlugin": "awscloudformation"
     }
@@ -61,7 +61,7 @@
         },
         {
           "category": "storage",
-          "resourceName": "CourseCategory",
+          "resourceName": "Lectures",
           "attributes": [
             "Name",
             "Arn",
@@ -70,7 +70,7 @@
         },
         {
           "category": "storage",
-          "resourceName": "Lectures",
+          "resourceName": "Section",
           "attributes": [
             "Name",
             "Arn",

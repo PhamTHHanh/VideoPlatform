@@ -4,15 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   removeLec,
   addLectureContent,
-  onChangeFile,
-} from "../../store/reducers/course";
+} from "../../../store/reducers/course";
 
 const keys = ["name", "video", "resource", "quiz"];
 
 function Lecture(props) {
-  const { cate} = props;
+  const { sec, onChange } = props;
   const dispatch = useDispatch();
-  // const courseContent = useSelector((state) => state.courseContent.list);
   const courseContent = useSelector((state) => state.course.content);
 
   // Lecture element
@@ -34,32 +32,32 @@ function Lecture(props) {
   };
 
   // Handle selected file
-  const changeFiles = (cate, index, event) => {
+  const changeFiles = (sec, index, event) => {
     const inputFiles = event.target.files[0];
     // console.log(inputFiles)
     const key = event.target.getAttribute("data-key");
     dispatch(
       addLectureContent({
-        indexCate: cate,
+        indexSec: sec,
         indexLec: index,
         key: key,
         value: inputFiles.name,
       })
     );
-    dispatch(
-      onChangeFile({
-        indexCate: cate,
-        indexLec: index,
-        key: key,
-        value: inputFiles,
-      })
-    );
-    // onChangeFiles(cate, index, key, inputFiles)
+    // dispatch(
+    //   onChangeFile({
+    //     indexSec: sec,
+    //     indexLec: index,
+    //     key: key,
+    //     value: inputFiles,
+    //   })
+    // );
+    onChange(sec, index, key, inputFiles)
   };
 
   return (
     <>
-      {courseContent[cate].lectures.map((item, index) => (
+      {courseContent[sec].lectures.map((item, index) => (
         <div className="lecture" key={index}>
           <input
             type="text"
@@ -70,7 +68,7 @@ function Lecture(props) {
             onChange={(e) =>
               dispatch(
                 addLectureContent({
-                  indexCate: cate,
+                  indexSec: sec,
                   indexLec: index,
                   key: e.target.getAttribute("data-key"),
                   value: e.target.value,
@@ -91,7 +89,7 @@ function Lecture(props) {
               style={{ display: "none" }}
               accept=".mp4, .mov"
               ref={el => videoFile.current[index] = el}
-              onChange={(e) => changeFiles(cate, index, e)}
+              onChange={(e) => changeFiles(sec, index, e)}
             ></input>
             <span className="course-resource">
               {item.video ? "1 file" : ""}
@@ -109,7 +107,7 @@ function Lecture(props) {
               data-key={keys[2]}
               style={{ display: "none" }}
               ref={el => resourceFile.current[index] = el}
-              onChange={(e) => changeFiles(cate, index, e)}
+              onChange={(e) => changeFiles(sec, index, e)}
             ></input>
             <span className="course-resource">
               {item.resource ? "1 file" : ""}
@@ -128,7 +126,7 @@ function Lecture(props) {
               style={{ display: "none" }}
               accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
               ref={el => quizFile.current[index] = el}
-              onChange={(e) => changeFiles(cate, index, e)}
+              onChange={(e) => changeFiles(sec, index, e)}
             ></input>
             <span className="course-resource">{item.quiz ? "1 file" : ""}</span>
           </div>
@@ -136,7 +134,7 @@ function Lecture(props) {
             className="fa-solid fa-xmark column-1"
             style={{ textAlign: "end", cursor: "pointer" }}
             onClick={() =>
-              dispatch(removeLec({ indexCate: cate, indexLec: index }))
+              dispatch(removeLec({ indexSec: sec, indexLec: index }))
             }
           ></i>
         </div>
