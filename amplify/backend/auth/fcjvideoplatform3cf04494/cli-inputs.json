@@ -1,0 +1,50 @@
+{
+    "version": "1",
+    "cognitoConfig": {
+      "identityPoolName": "fcjvideoplatform3cf04494_identitypool_3cf04494",
+      "allowUnauthenticatedIdentities": false,
+      "resourceNameTruncated": "fcjvid3cf04494",
+      "userPoolName": "fcjvideoplatform3cf04494_userpool_3cf04494",
+      "autoVerifiedAttributes": [
+        "email"
+      ],
+      "mfaConfiguration": "OFF",
+      "mfaTypes": [
+        "SMS Text Message"
+      ],
+      "smsAuthenticationMessage": "Your authentication code is {####}",
+      "smsVerificationMessage": "Your verification code is {####}",
+      "emailVerificationSubject": "Your verification code",
+      "emailVerificationMessage": "Your verification code is {####}",
+      "defaultPasswordPolicy": false,
+      "passwordPolicyMinLength": 8,
+      "passwordPolicyCharacters": [],
+      "requiredAttributes": [
+        "email"
+      ],
+      "aliasAttributes": [],
+      "userpoolClientGenerateSecret": false,
+      "userpoolClientRefreshTokenValidity": 30,
+      "userpoolClientWriteAttributes": [
+        "email"
+      ],
+      "userpoolClientReadAttributes": [
+        "email"
+      ],
+      "userpoolClientLambdaRole": "fcjvid3cf04494_userpoolclient_lambda_role",
+      "userpoolClientSetAttributes": false,
+      "sharedId": "3cf04494",
+      "resourceName": "fcjvideoplatform3cf04494",
+      "authSelections": "identityPoolAndUserPool",
+      "useDefault": "defaultSocial",
+      "hostedUI": true,
+      "hostedUIDomainName": "fcjvideoplatform3cf04494-3cf04494",
+      "authProvidersUserPool": [],
+      "hostedUIProviderMeta": "[]",
+      "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}",
+      "userPoolGroupList": [],
+      "serviceName": "Cognito",
+      "usernameCaseSensitive": false,
+      "useEnabledMfas": true
+    }
+  }

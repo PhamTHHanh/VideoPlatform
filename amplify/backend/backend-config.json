@@ -1,99 +1,140 @@
 {
-  "auth": {
-    "fcjvideoplatform48207057": {
-      "service": "Cognito",
+  "api": {
+    "fcjvideoplatformapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "crudCourse"
+        }
+      ],
       "providerPlugin": "awscloudformation",
-      "dependsOn": [],
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "fcjvideoplatform3cf04494": {
       "customAuth": false,
+      "dependsOn": [],
       "frontendAuthConfig": {
-        "socialProviders": [],
-        "usernameAttributes": [],
-        "signupAttributes": [
-          "EMAIL"
-        ],
-        "passwordProtectionSettings": {
-          "passwordPolicyMinLength": 8,
-          "passwordPolicyCharacters": []
-        },
         "mfaConfiguration": "OFF",
         "mfaTypes": [
           "SMS"
         ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
         ]
-      }
-    }
-  },
-  "storage": {
-    "fcjvideoplatform": {
-      "service": "S3",
+      },
       "providerPlugin": "awscloudformation",
-      "dependsOn": []
-    },
-    "Course": {
-      "service": "DynamoDB",
-      "providerPlugin": "awscloudformation"
-    },
-    "Lectures": {
-      "service": "DynamoDB",
-      "providerPlugin": "awscloudformation"
-    },
-    "Section": {
-      "service": "DynamoDB",
-      "providerPlugin": "awscloudformation"
+      "service": "Cognito"
     }
   },
   "function": {
     "crudCourse": {
       "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
       "dependsOn": [
         {
-          "category": "storage",
-          "resourceName": "Course",
           "attributes": [
             "Name",
             "Arn",
             "StreamArn"
-          ]
+          ],
+          "category": "storage",
+          "resourceName": "Course"
         },
         {
-          "category": "storage",
-          "resourceName": "Lectures",
           "attributes": [
             "Name",
             "Arn",
             "StreamArn"
-          ]
+          ],
+          "category": "storage",
+          "resourceName": "Section"
         },
         {
-          "category": "storage",
-          "resourceName": "Section",
           "attributes": [
             "Name",
             "Arn",
             "StreamArn"
-          ]
+          ],
+          "category": "storage",
+          "resourceName": "Lectures"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "providerPlugin": "awscloudformation",
+      "service": "amplifyhosting",
+      "type": "manual"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_crudCourse_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "crudCourse"
+        }
+      ]
+    },
+    "AMPLIFY_function_crudCourse_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "crudCourse"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_appId": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_type": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
         }
       ]
     }
   },
-  "api": {
-    "fcjvideoplatformapi": {
-      "service": "API Gateway",
+  "storage": {
+    "Course": {
       "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "crudCourse",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        }
-      ]
+      "service": "DynamoDB"
+    },
+    "Section": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "Lectures": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "fcjvideoplatform": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
     }
   }
 }

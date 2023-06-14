@@ -1,0 +1,107 @@
+/* Animation.css */
+
+/* Animation component */
+.Animation {
+  /* CSS rules for the Animation component */
+}
+
+/* Header component */
+.AuthStateApp__Header {
+  /* CSS rules for the Header component */
+}
+
+/* SignInHeader component */
+.AuthStateApp__SignInHeader {
+  /* CSS rules for the SignInHeader component */
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
+}
+
+/* SignInFooter component */
+.AuthStateApp__SignInFooter {
+  /* CSS rules for the SignInFooter component */
+  text-align: center;
+}
+
+/* SignInFooter Button */
+.AuthStateApp__SignInFooterButton {
+  /* CSS rules for the Button component inside SignInFooter */
+  font-weight: normal;
+}
+
+/* SignUpHeader component */
+.AuthStateApp__SignUpHeader {
+  /* CSS rules for the SignUpHeader component */
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
+}
+
+/* SignUpFooter component */
+.AuthStateApp__SignUpFooter {
+  /* CSS rules for the SignUpFooter component */
+  text-align: center;
+}
+
+/* SignUpFooter Button */
+.AuthStateApp__SignUpFooterButton {
+  /* CSS rules for the Button component inside SignUpFooter */
+  font-weight: normal;
+}
+
+/* ConfirmSignUpHeader component */
+.AuthStateApp__ConfirmSignUpHeader {
+  /* CSS rules for the ConfirmSignUpHeader component */
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
+}
+
+/* ConfirmSignUpFooter component */
+.AuthStateApp__ConfirmSignUpFooter {
+  /* CSS rules for the ConfirmSignUpFooter component */
+  text-align: center;
+}
+
+/* SetupTOTPHeader component */
+.AuthStateApp__SetupTOTPHeader {
+  /* CSS rules for the SetupTOTPHeader component */
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
+}
+
+/* SetupTOTPFooter component */
+.AuthStateApp__SetupTOTPFooter {
+  /* CSS rules for the SetupTOTPFooter component */
+  text-align: center;
+}
+
+/* ConfirmSignInHeader component */
+.AuthStateApp__ConfirmSignInHeader {
+  /* CSS rules for the ConfirmSignInHeader component */
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
+}
+
+/* ConfirmSignInFooter component */
+.AuthStateApp__ConfirmSignInFooter {
+  /* CSS rules for the ConfirmSignInFooter component */
+  text-align: center;
+}
+
+/* ResetPasswordHeader component */
+.AuthStateApp__ResetPasswordHeader {
+  /* CSS rules for the ResetPasswordHeader component */
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
+}
+
+/* ResetPasswordFooter component */
+.AuthStateApp__ResetPasswordFooter {
+  /* CSS rules for the ResetPasswordFooter component */
+  text-align: center;
+}
+
+/* ConfirmResetPasswordHeader component */
+.AuthStateApp__ConfirmResetPasswordHeader {
+  /* CSS rules for the ConfirmResetPasswordHeader component */
+  padding: var(--tokens-space-xl) 0 0 var(--tokens-space-xl);
+}
+
+/* ConfirmResetPasswordFooter component */
+.AuthStateApp__ConfirmResetPasswordFooter {
+  /* CSS rules for the ConfirmResetPasswordFooter component */
+  text-align: center;
+}

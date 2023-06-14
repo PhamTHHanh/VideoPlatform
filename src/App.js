@@ -9,8 +9,13 @@ import Lecture from "./component/Course/Learn/Lecture"
 import "./App.css";
 import "./style/styles.css";
 import "./style/custom.css";
-import { Amplify, Storage } from "aws-amplify";
-import awsconfig from "./aws-exports";
+import { Amplify, Storage } from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+import AuthStateApp from "./component/Authentication/AuthStateApp";
+import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+
 Amplify.configure(awsconfig);
 
 function App() {
@@ -21,6 +26,7 @@ function App() {
         <MainLayout>
           <Routes>
             <Route path="/admin/create-course" element={<CreateCourse />}></Route>
+            <Route path="/auth" element={<AuthStateApp />}></Route>
             <Route path="/course" element={<CourseList />}></Route>
             <Route path="/course/:name" element={<CourseDetail />}></Route>
             {/* <Route path="/learn/:course_name/" element={<Studying />}></Route> */}
@@ -29,6 +35,7 @@ function App() {
         </MainLayout>
       </Router>
     </div>
+
   );
 }
 
